@@ -1,0 +1,278 @@
+var nodeMaterial = new BABYLON.NodeMaterial("node");
+nodeMaterial.mode = BABYLON.NodeMaterialModes.Material;
+
+// InputBlock
+var position = new BABYLON.InputBlock("position");
+position.visibleInInspector = false;
+position.visibleOnFrame = false;
+position.target = 1;
+position.setAsAttribute("position");
+
+// TransformBlock
+var WorldPos = new BABYLON.TransformBlock("WorldPos");
+WorldPos.visibleInInspector = false;
+WorldPos.visibleOnFrame = false;
+WorldPos.target = 1;
+WorldPos.complementZ = 0;
+WorldPos.complementW = 1;
+
+// InputBlock
+var World = new BABYLON.InputBlock("World");
+World.visibleInInspector = false;
+World.visibleOnFrame = false;
+World.target = 1;
+World.setAsSystemValue(BABYLON.NodeMaterialSystemValues.World);
+
+// TransformBlock
+var Worldnormal = new BABYLON.TransformBlock("World normal");
+Worldnormal.visibleInInspector = false;
+Worldnormal.visibleOnFrame = false;
+Worldnormal.target = 1;
+Worldnormal.complementZ = 0;
+Worldnormal.complementW = 0;
+
+// InputBlock
+var normal = new BABYLON.InputBlock("normal");
+normal.visibleInInspector = false;
+normal.visibleOnFrame = false;
+normal.target = 1;
+normal.setAsAttribute("normal");
+
+// PBRMetallicRoughnessBlock
+var PBRMetallicRoughness = new BABYLON.PBRMetallicRoughnessBlock("PBRMetallicRoughness");
+PBRMetallicRoughness.visibleInInspector = false;
+PBRMetallicRoughness.visibleOnFrame = false;
+PBRMetallicRoughness.target = 3;
+PBRMetallicRoughness.lightFalloff = 0;
+PBRMetallicRoughness.useAlphaTest = false;
+PBRMetallicRoughness.alphaTestCutoff = 0.5;
+PBRMetallicRoughness.useAlphaBlending = false;
+PBRMetallicRoughness.useRadianceOverAlpha = true;
+PBRMetallicRoughness.useSpecularOverAlpha = true;
+PBRMetallicRoughness.enableSpecularAntiAliasing = false;
+PBRMetallicRoughness.realTimeFiltering = false;
+PBRMetallicRoughness.realTimeFilteringQuality = 64;
+PBRMetallicRoughness.useEnergyConservation = true;
+PBRMetallicRoughness.useRadianceOcclusion = true;
+PBRMetallicRoughness.useHorizonOcclusion = true;
+PBRMetallicRoughness.unlit = false;
+PBRMetallicRoughness.forceNormalForward = false;
+PBRMetallicRoughness.debugMode = 0;
+PBRMetallicRoughness.debugLimit = 0;
+PBRMetallicRoughness.debugFactor = 1;
+
+// InputBlock
+var view = new BABYLON.InputBlock("view");
+view.visibleInInspector = false;
+view.visibleOnFrame = false;
+view.target = 1;
+view.setAsSystemValue(BABYLON.NodeMaterialSystemValues.View);
+
+// InputBlock
+var cameraPosition = new BABYLON.InputBlock("cameraPosition");
+cameraPosition.visibleInInspector = false;
+cameraPosition.visibleOnFrame = false;
+cameraPosition.target = 1;
+cameraPosition.setAsSystemValue(BABYLON.NodeMaterialSystemValues.CameraPosition);
+
+// ViewDirectionBlock
+var Viewdirection = new BABYLON.ViewDirectionBlock("View direction");
+Viewdirection.visibleInInspector = false;
+Viewdirection.visibleOnFrame = false;
+Viewdirection.target = 4;
+
+// DivideBlock
+var Divide = new BABYLON.DivideBlock("Divide");
+Divide.visibleInInspector = false;
+Divide.visibleOnFrame = false;
+Divide.target = 4;
+
+// InputBlock
+var Vector = new BABYLON.InputBlock("Vector3");
+Vector.visibleInInspector = false;
+Vector.visibleOnFrame = false;
+Vector.target = 1;
+Vector.value = new BABYLON.Vector3(0.8, 0.8, 0.8);
+Vector.isConstant = false;
+
+// FresnelBlock
+var Fresnel = new BABYLON.FresnelBlock("Fresnel");
+Fresnel.visibleInInspector = false;
+Fresnel.visibleOnFrame = false;
+Fresnel.target = 4;
+
+// InputBlock
+var bias = new BABYLON.InputBlock("bias");
+bias.visibleInInspector = false;
+bias.visibleOnFrame = false;
+bias.target = 1;
+bias.value = 0;
+bias.min = 0;
+bias.max = 0;
+bias.isBoolean = false;
+bias.matrixMode = 0;
+bias.animationType = BABYLON.AnimatedInputBlockTypes.None;
+bias.isConstant = false;
+
+// InputBlock
+var FresnelPower = new BABYLON.InputBlock("FresnelPower");
+FresnelPower.visibleInInspector = false;
+FresnelPower.visibleOnFrame = false;
+FresnelPower.target = 1;
+FresnelPower.value = 1.16;
+FresnelPower.min = 0;
+FresnelPower.max = 4;
+FresnelPower.isBoolean = false;
+FresnelPower.matrixMode = 0;
+FresnelPower.animationType = BABYLON.AnimatedInputBlockTypes.None;
+FresnelPower.isConstant = false;
+
+// PowBlock
+var Pow = new BABYLON.PowBlock("Pow");
+Pow.visibleInInspector = false;
+Pow.visibleOnFrame = false;
+Pow.target = 4;
+
+// InputBlock
+var FresnelMultiplier = new BABYLON.InputBlock("FresnelMultiplier");
+FresnelMultiplier.visibleInInspector = false;
+FresnelMultiplier.visibleOnFrame = false;
+FresnelMultiplier.target = 1;
+FresnelMultiplier.value = 0.35;
+FresnelMultiplier.min = 0;
+FresnelMultiplier.max = 5;
+FresnelMultiplier.isBoolean = false;
+FresnelMultiplier.matrixMode = 0;
+FresnelMultiplier.animationType = BABYLON.AnimatedInputBlockTypes.None;
+FresnelMultiplier.isConstant = false;
+
+// LerpBlock
+var Lerp = new BABYLON.LerpBlock("Lerp");
+Lerp.visibleInInspector = false;
+Lerp.visibleOnFrame = false;
+Lerp.target = 4;
+
+// InputBlock
+var ColorSide = new BABYLON.InputBlock("ColorSide");
+ColorSide.visibleInInspector = false;
+ColorSide.visibleOnFrame = false;
+ColorSide.target = 1;
+ColorSide.value = new BABYLON.Color3(0.23137254901960785, 0.23137254901960785, 0.23137254901960785).toLinearSpace();
+ColorSide.isConstant = false;
+
+// InputBlock
+var ColorCenter = new BABYLON.InputBlock("ColorCenter");
+ColorCenter.visibleInInspector = false;
+ColorCenter.visibleOnFrame = false;
+ColorCenter.target = 1;
+ColorCenter.value = new BABYLON.Color3(0.9137254901960784, 0.9137254901960784, 0.9137254901960784).toLinearSpace();
+ColorCenter.isConstant = false;
+
+// MultiplyBlock
+var Multiply = new BABYLON.MultiplyBlock("Multiply");
+Multiply.visibleInInspector = false;
+Multiply.visibleOnFrame = false;
+Multiply.target = 4;
+
+// FragmentOutputBlock
+var FragmentOutput = new BABYLON.FragmentOutputBlock("FragmentOutput");
+FragmentOutput.visibleInInspector = false;
+FragmentOutput.visibleOnFrame = false;
+FragmentOutput.target = 2;
+FragmentOutput.convertToGammaSpace = false;
+FragmentOutput.convertToLinearSpace = false;
+FragmentOutput.useLogarithmicDepth = false;
+
+// InputBlock
+var Metallic = new BABYLON.InputBlock("Metallic");
+Metallic.visibleInInspector = false;
+Metallic.visibleOnFrame = false;
+Metallic.target = 1;
+Metallic.value = 0;
+Metallic.min = 0;
+Metallic.max = 1;
+Metallic.isBoolean = false;
+Metallic.matrixMode = 0;
+Metallic.animationType = BABYLON.AnimatedInputBlockTypes.None;
+Metallic.isConstant = false;
+
+// InputBlock
+var Roughness = new BABYLON.InputBlock("Roughness");
+Roughness.visibleInInspector = false;
+Roughness.visibleOnFrame = false;
+Roughness.target = 1;
+Roughness.value = 0;
+Roughness.min = 0;
+Roughness.max = 1;
+Roughness.isBoolean = false;
+Roughness.matrixMode = 0;
+Roughness.animationType = BABYLON.AnimatedInputBlockTypes.None;
+Roughness.isConstant = false;
+
+// ReflectionBlock
+var ReflectionBlock = new BABYLON.ReflectionBlock("ReflectionBlock");
+ReflectionBlock.visibleInInspector = false;
+ReflectionBlock.visibleOnFrame = false;
+ReflectionBlock.target = 3;
+ReflectionBlock.useSphericalHarmonics = true;
+ReflectionBlock.forceIrradianceInFragment = false;
+
+// TransformBlock
+var WorldPosViewProjectionTransform = new BABYLON.TransformBlock("WorldPos * ViewProjectionTransform");
+WorldPosViewProjectionTransform.visibleInInspector = false;
+WorldPosViewProjectionTransform.visibleOnFrame = false;
+WorldPosViewProjectionTransform.target = 1;
+WorldPosViewProjectionTransform.complementZ = 0;
+WorldPosViewProjectionTransform.complementW = 1;
+
+// InputBlock
+var ViewProjection = new BABYLON.InputBlock("ViewProjection");
+ViewProjection.visibleInInspector = false;
+ViewProjection.visibleOnFrame = false;
+ViewProjection.target = 1;
+ViewProjection.setAsSystemValue(BABYLON.NodeMaterialSystemValues.ViewProjection);
+
+// VertexOutputBlock
+var VertexOutput = new BABYLON.VertexOutputBlock("VertexOutput");
+VertexOutput.visibleInInspector = false;
+VertexOutput.visibleOnFrame = false;
+VertexOutput.target = 1;
+
+// Connections
+position.output.connectTo(WorldPos.vector);
+World.output.connectTo(WorldPos.transform);
+WorldPos.output.connectTo(WorldPosViewProjectionTransform.vector);
+ViewProjection.output.connectTo(WorldPosViewProjectionTransform.transform);
+WorldPosViewProjectionTransform.output.connectTo(VertexOutput.vector);
+WorldPos.output.connectTo(PBRMetallicRoughness.worldPosition);
+normal.output.connectTo(Worldnormal.vector);
+World.output.connectTo(Worldnormal.transform);
+Worldnormal.output.connectTo(PBRMetallicRoughness.worldNormal);
+view.output.connectTo(PBRMetallicRoughness.view);
+cameraPosition.output.connectTo(PBRMetallicRoughness.cameraPosition);
+Metallic.output.connectTo(PBRMetallicRoughness.metallic);
+Roughness.output.connectTo(PBRMetallicRoughness.roughness);
+position.output.connectTo(ReflectionBlock.position);
+World.output.connectTo(ReflectionBlock.world);
+ReflectionBlock.reflection.connectTo(PBRMetallicRoughness.reflection);
+PBRMetallicRoughness.lighting.connectTo(Multiply.left);
+ColorSide.output.connectTo(Lerp.left);
+ColorCenter.output.connectTo(Lerp.right);
+Worldnormal.output.connectTo(Fresnel.worldNormal);
+WorldPos.output.connectTo(Viewdirection.worldPosition);
+cameraPosition.output.connectTo(Viewdirection.cameraPosition);
+Viewdirection.output.connectTo(Divide.left);
+Vector.output.connectTo(Divide.right);
+Divide.output.connectTo(Fresnel.viewDirection);
+bias.output.connectTo(Fresnel.bias);
+FresnelPower.output.connectTo(Fresnel.power);
+Fresnel.fresnel.connectTo(Pow.value);
+FresnelMultiplier.output.connectTo(Pow.power);
+Pow.output.connectTo(Lerp.gradient);
+Lerp.output.connectTo(Multiply.right);
+Multiply.output.connectTo(FragmentOutput.rgb);
+
+// Output nodes
+nodeMaterial.addOutputNode(VertexOutput);
+nodeMaterial.addOutputNode(FragmentOutput);
+nodeMaterial.build();
